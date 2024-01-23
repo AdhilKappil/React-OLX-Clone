@@ -18,14 +18,7 @@ function Auth() {
     const [password, setPasswordLogin] = useState('');
 
     const navigate = useNavigate();
-
-    // const [users, setUsers] = useState([]);
     const usersCollectionRef = collection(db, "Users");
-
-    // const createUser = async () => {
-    //     await addDoc(usersCollectionRef, { name: newName, mobile: Number(newMobile),
-    //                                      email: newEmail, password: newPassword });
-    // };
 
     const handleToggleForm = () => {
         setIsLogin((prevIsLogin) => !prevIsLogin);

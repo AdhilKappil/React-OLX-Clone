@@ -56,7 +56,7 @@ function Products() {
                                 <img className="max-w-full" src={obj.url} alt="" />
                             </div>
                             <p className="card-title">{obj.price}</p>
-                            <p className="card-des">{obj.productName}</p>
+                            <p className="card-des font-medium	">{obj.productName}</p>
                             <div className='flex justify-between'>
                             <p className="card-des">{obj.location}</p>
                             <p className="card-des">{formatDate(obj.date)}</p>
