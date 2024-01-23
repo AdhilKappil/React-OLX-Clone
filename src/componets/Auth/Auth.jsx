@@ -41,7 +41,7 @@ function Auth() {
                
               const user = userCredential.user;
               updateProfile(user, { displayName: newName }).then(()=>{
-                addDoc(usersCollectionRef, { name: newName, mobile: Number(newMobile),id:user.uid}).then(()=>{
+                addDoc(usersCollectionRef, { name: newName, mobile: Number(newMobile),userUid:user.uid}).then(()=>{
                     setIsLogin(false)
                         navigate("/");
                     })

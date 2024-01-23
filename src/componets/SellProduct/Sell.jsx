@@ -10,18 +10,18 @@ import { AuthContext } from '../Firebase/context';
 function Sell() {
 
     const [productName, setProductName] = useState(' ')
-    const [brand, setBrand] = useState(' ')
+    const [location, setLocation] = useState(' ')
     const [category, setCategoty] = useState(' ')
     const [price, setPrice] = useState(' ')
     const [file, setFile] = useState();
-
     const { user } = useContext(AuthContext)
-
     const navigate = useNavigate();
+
+    const date = new Date();
 
     const usersCollectionRef = collection(db, "Products");
 
-    const createUser = async () => {
+    const createProducts = async () => {
 
         const storageRef = ref(storage, `/images/${file.name}`);
 
@@ -37,10 +37,11 @@ function Sell() {
         await addDoc(usersCollectionRef, {
             productName,
             price: Number(price),
-            brand,
+            location,
             category,
             url: downloadURL,
-            userId: user.uid
+            userId: user.uid,
+            date:date.toString()
         }).then(() => {
             navigate("/")
         })
@@ -60,12 +61,12 @@ function Sell() {
                     <input onChange={(event) => setProductName(event.target.value)} type="text" className="placeSearch-Login mt-8 ml-6 p-2" placeholder='Product Name' />
                     <input onChange={(event) => setCategoty(event.target.value)} type="text" className="placeSearch-Login mt-5 ml-6 p-2" placeholder='Category' />
                     <input onChange={(event) => setPrice(event.target.value)} type="number" className="placeSearch-Login mt-5 ml-6 p-2" placeholder='Price' />
-                    <input onChange={(event) => setBrand(event.target.value)} type="text" className="placeSearch-Login mt-5 ml-6 p-2" placeholder='Location' />
+                    <input onChange={(event) => setLocation(event.target.value)} type="text" className="placeSearch-Login mt-5 ml-6 p-2" placeholder='Location' />
                     <input onChange={handleChange} type="file" className="placeSearch-Login mt-5 ml-6 p-2" placeholder='Image' />
                     <div className='h-40 mx-10 mt-4 overflow-hidden'>
                         <img src={(file) && URL.createObjectURL(file)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
-                    <button onClick={createUser} className={`rounded-full text-white bg-teal-700 border-2 h-10 w-64 ml-16 mt-2 hover:border-blue-500`}>
+                    <button onClick={createProducts} className={`rounded-full text-white bg-teal-700 border-2 h-10 w-64 ml-16 mt-2 hover:border-blue-500`}>
                         Add
                     </button>
                 </div>

@@ -160,3 +160,12 @@
     height: 30px;
     align-items: center;
   } */
+
+  .nav-lite {
+    font-size: small;
+  }
+  
+  .nav-lite:hover {
+    color: rgb(0, 176, 161);
+    cursor: pointer;
+  }

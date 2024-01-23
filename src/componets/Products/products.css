@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
      /* Distribute items evenly */
-    max-width: 1200px; /* Set a maximum width for the container */
+    max-width: 1250px; /* Set a maximum width for the container */
     margin: 0 auto; /* Center the container on the page */      
     column-gap: 12px;
     row-gap: 12px;
@@ -87,5 +87,9 @@
       "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
       color: rgb(0, 47, 52, 0.64);
     cursor: default;
+  }
+
+  .titel-text{
+    color: rgb(0, 47, 52);
   }
   
