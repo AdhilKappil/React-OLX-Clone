@@ -33,6 +33,12 @@ function ProductDetais() {
         fetchData();
     }, []);
 
+    function formatDate(dateString) {
+        const options = { month: 'short', day: 'numeric', year: 'numeric' };
+        const date = new Date(dateString);
+        return new Intl.DateTimeFormat('en-US', options).format(date);
+    }
+
 
 
     return (
@@ -50,7 +56,7 @@ function ProductDetais() {
                                 <span>{postDetails.productName}</span>
                                 <p>{postDetails.category}</p>
                                 <p>{postDetails.location}</p>
-                                <span>Tue May 04 2023</span>
+                                <span>{formatDate(postDetails.date)}</span>
                             </div>
                             {user.map((user, index) => {
                                 return (
