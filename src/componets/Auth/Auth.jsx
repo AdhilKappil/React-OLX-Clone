@@ -6,7 +6,7 @@ import { db } from "../Firebase/Config";
 import { collection, addDoc} from "firebase/firestore";
 import { useNavigate } from 'react-router-dom'; 
 
-
+    
 function Auth() {
     const [isLogin, setIsLogin] = useState(true);
     const [newName, setName] = useState("");

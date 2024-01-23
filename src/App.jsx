@@ -1,4 +1,3 @@
-
 import './App.css'
 import Auth from './componets/Auth/Auth';
 import Layout from './componets/Layout';
@@ -7,7 +6,9 @@ import Products from './componets/Products/products'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Sell from './componets/SellProduct/Sell';
 
+
 function App() {
+
     return (
       <div>
         <Router>
