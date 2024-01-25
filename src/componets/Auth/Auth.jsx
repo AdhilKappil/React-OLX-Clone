@@ -103,10 +103,6 @@ function Auth() {
   const onLogin = (e) => {
     e.preventDefault();
 
-    // if (!validateInput()) {
-    //   return;
-    // }
-
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -114,11 +110,11 @@ function Auth() {
         console.log(user);
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage)
+        console.log(error);
+        window.alert("Enter a vallid email or password")
       });
   };
+
 
   return (
     <div className='flex justify-center mt-14'>
@@ -156,7 +152,7 @@ function Auth() {
                   setEmail(event.target.value);
                   setEmailError('');
                 }}
-                type="text"
+                type="email"
                 className="placeSearch-Login mt-5 ml-6 p-2"
                 placeholder='Email'
               />
@@ -180,7 +176,7 @@ function Auth() {
                   setEmailLogin(event.target.value);
                   setEmailError('');
                 }}
-                type="text"
+                type="email"
                 className="placeSearch-Login mt-5 ml-6 p-2"
                 placeholder='Email'
               />
